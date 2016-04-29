@@ -9,4 +9,4 @@ A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-
 
 ~ For further information , See [utom/sketch-measure](https://github.com/utom/sketch-measure) ~
 
-#### Thanks For [Marketch](https://github.com/tudou527/marketch/tree/master/marketch.sketchplugin/Contents/Sketch)
+#### Thanks For [Marketch](https://github.com/tudou527/marketch)
