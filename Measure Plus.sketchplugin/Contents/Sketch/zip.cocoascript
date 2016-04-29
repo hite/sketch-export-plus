@@ -309,7 +309,7 @@ Marketch.prototype = {
     }
     //画板不存在
     if(this.allArtboards.length == 0){
-      doc.showMessage('没有可用的ArtBoard');
+      doc.showMessage('No ArtBoard can be export');
     }
   }
 }
@@ -332,15 +332,15 @@ function onRun(context){
 
 function getConfigs(){
 	var altWin = COSAlertWindow.new();
-    var items = ['当前选中的画板', '当前页面上的全部画板', '所有画板(会比较慢)'];
+    var items = ['Selected Artboard', 'Artboards on Current Page', 'All Artboards(would be slow)'];
     var comboBox = NSComboBox.alloc().initWithFrame(NSMakeRect(0,0,200,25));
     var exportBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
     var sourceBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
 
     altWin.setMessageText('Marketch');
-    altWin.setInformativeText('请选择要导出的画板');
-    altWin.addButtonWithTitle('确认');
-    altWin.addButtonWithTitle('取消');
+    altWin.setInformativeText('Which artboard would you like to export?');
+    altWin.addButtonWithTitle('Confirm');
+    altWin.addButtonWithTitle('Cancel');
 
     comboBox.addItemsWithObjectValues(items);
     comboBox.selectItemAtIndex(0);
