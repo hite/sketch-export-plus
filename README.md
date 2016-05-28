@@ -1,6 +1,6 @@
 # Sketch Measure Plus
 
-A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-measure), derived from Sketch Measure v0.9.4.3
+A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-measure), derived from Sketch Measure.
 
 ### Extra Features
 
