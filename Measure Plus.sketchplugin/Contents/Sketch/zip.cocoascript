@@ -21,6 +21,8 @@ com.utom.extend({
         var pluginPath = NSString.stringWithString(this.context.scriptPath).stringByDeletingLastPathComponent();
         var tempPath = pluginPath.stringByAppendingPathComponent("assets/template2.html");
         var jqPath = pluginPath.stringByAppendingPathComponent("assets/jquery-1.12.0.min.js");
+        var indexHtmlPath = pluginPath.stringByAppendingPathComponent("assets/index.html");
+        var indexJsPath = pluginPath.stringByAppendingPathComponent("assets/index.js");
         var jsappPath = pluginPath.stringByAppendingPathComponent("assets/app2.js");
         var specPath = pluginPath.stringByAppendingPathComponent("assets/spec.js");
         var cssnorPath = pluginPath.stringByAppendingPathComponent("assets/normalize-3.0.3.min.css");
@@ -28,6 +30,8 @@ com.utom.extend({
 
         var tempCon = [NSString stringWithContentsOfFile:tempPath encoding:NSUTF8StringEncoding error:nil];
         var jqCon = [NSString stringWithContentsOfFile:jqPath encoding:NSUTF8StringEncoding error:nil];
+        var indexCon = [NSString stringWithContentsOfFile:indexHtmlPath encoding:NSUTF8StringEncoding error:nil];
+        var indexJsCon = [NSString stringWithContentsOfFile:indexJsPath encoding:NSUTF8StringEncoding error:nil];
         var jsappCon = [NSString stringWithContentsOfFile:jsappPath encoding:NSUTF8StringEncoding error:nil];
         var specCon = [NSString stringWithContentsOfFile:specPath encoding:NSUTF8StringEncoding error:nil];
         var cssnorCon = [NSString stringWithContentsOfFile:cssnorPath encoding:NSUTF8StringEncoding error:nil];
@@ -79,6 +83,18 @@ com.utom.extend({
                                 encoding: NSUTF8StringEncoding
                                    error: null];
         }
+        // export index.html
+        log("start export index.html");
+        var specContent = this.template(indexCon, {list: artboardsData});
+        var exportURL = savePath.stringByAppendingPathComponent("index.html");
+        log("specContent : " + specContent);
+        log("exportURL : " + exportURL);
+        var content = NSString.stringWithString(specContent);
+        [content writeToFile: exportURL
+                  atomically: false
+                    encoding: NSUTF8StringEncoding
+                       error: null];
+        log('export index done');
         this.message(_("Export complete!"));
     },
     getArtboard: function( msArtboard, savePath, symbolOffset ){
@@ -211,7 +227,8 @@ com.utom.extend({
                 var thePageName = this.toJSString(theArtPage.name()).replace(/[\/\\]/g, "-")
                 var artboardData = {
                     objectID: this.toJSString(msArtboard.objectID()),
-                    name: this.toJSString(thePageName + '-' + msArtboard.name()),
+                    pageName: thePageName, // for group all artboards of one page
+                    name: this.toJSString(msArtboard.name()),
                     imageBase64: this.toJSString(imageBase64),
                     width: artboardFrame.width(),
                     height: artboardFrame.height()
@@ -238,12 +255,13 @@ com.utom.extend({
                 });
                 content = NSString.stringWithString(content);
                 var artname = this.toJSString( msArtboard.name() ).replace(/[\/\\]/g, "-");
-                var exportURL = savePath.stringByAppendingPathComponent( thePageName + '-' + artname + ".html");
+                var exportURL = savePath.stringByAppendingPathComponent(artboardData.objectID +".html");
 
                 [content writeToFile: exportURL
                           atomically: false
                             encoding: NSUTF8StringEncoding
                                error: null];
+                               
             }
             else{
                 return layers
