@@ -9,12 +9,11 @@
     <title>index</title>
     <style type="text/css">
     <!-- cssNormalize -->
-    <!-- cssApp -->
+    <!-- cssIndex -->
     </style>
     <script type="text/javascript">
     <!-- jsjQuery -->
-    <!-- jsApp -->
-    <!-- jsSpec -->
+    <!-- jsIndex -->
     </script>
     <script type="text/javascript" src="artboards.js"></script>
     <script type="text/javascript" src="slices.js"></script>
@@ -29,15 +28,29 @@
     </script>
   </head>
 
- <body class="off">
-
-    <div id="navbar" class="navbar navoff">
-      <div id="tabs" class="tabs">
-        <div class="a-tab current">Artboards</div>
-        <div class="s-tab">Slices</div>
+ <body class="frame">
+    <div id="navbar" class="b-nav">
+        <h1 class="w-panel-title">Measure Plus</h1>
+      <div id="artboard_list" class="w-artboard-list">
+          <h2 class="a-group">${name}</h2>
+          <div class="w-item">
+            <a href="A7E7562B-B715-4722-A7EB-83B1E163E4FD.html" target="content_iframe" class="a-name">${name}</a>
+          </div>
+          <div class="w-item">
+            <a href="#" class="a-name">${name}</a>
+          </div>
+          <div class="w-item">
+            <a href="#" class="a-name">${name}</a>
+          </div>
+          <div class="w-item">
+            <a href="#" class="a-name">${name}</a>
+          </div>
+          <h2 class="a-group">${name}</h2>
       </div>
-      <div id="artboard_list" class="artboard_list"></div>
-      <div id="slice_list" class="slice_list"></div>
+    </div>
+    <div class="b-content">
+        <iframe src="empty.html" id="content_iframe" name="content_iframe" frameborder="0" scrolling="true" class="b-iframe">
+    </iframe>        
     </div>
 
     <script id="artboard-item-template" type="application/template">

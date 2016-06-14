@@ -23,6 +23,7 @@ com.utom.extend({
         var jqPath = pluginPath.stringByAppendingPathComponent("assets/jquery-1.12.0.min.js");
         var indexHtmlPath = pluginPath.stringByAppendingPathComponent("assets/index.html");
         var indexJsPath = pluginPath.stringByAppendingPathComponent("assets/index.js");
+        var indexCssPath = pluginPath.stringByAppendingPathComponent("assets/index.css");
         var jsappPath = pluginPath.stringByAppendingPathComponent("assets/app2.js");
         var specPath = pluginPath.stringByAppendingPathComponent("assets/spec.js");
         var cssnorPath = pluginPath.stringByAppendingPathComponent("assets/normalize-3.0.3.min.css");
@@ -31,7 +32,8 @@ com.utom.extend({
         var tempCon = [NSString stringWithContentsOfFile:tempPath encoding:NSUTF8StringEncoding error:nil];
         var jqCon = [NSString stringWithContentsOfFile:jqPath encoding:NSUTF8StringEncoding error:nil];
         var indexCon = [NSString stringWithContentsOfFile:indexHtmlPath encoding:NSUTF8StringEncoding error:nil];
-        var indexJsCon = [NSString stringWithContentsOfFile:indexJsPath encoding:NSUTF8StringEncoding error:nil];
+        var jsIndex = [NSString stringWithContentsOfFile:indexJsPath encoding:NSUTF8StringEncoding error:nil];
+        var cssIndex = [NSString stringWithContentsOfFile:indexCssPath encoding:NSUTF8StringEncoding error:nil];
         var jsappCon = [NSString stringWithContentsOfFile:jsappPath encoding:NSUTF8StringEncoding error:nil];
         var specCon = [NSString stringWithContentsOfFile:specPath encoding:NSUTF8StringEncoding error:nil];
         var cssnorCon = [NSString stringWithContentsOfFile:cssnorPath encoding:NSUTF8StringEncoding error:nil];
@@ -85,7 +87,13 @@ com.utom.extend({
         }
         // export index.html
         log("start export index.html");
-        var specContent = this.template(indexCon, {list: artboardsData});
+        var specContent = this.template(indexCon, {
+            cssNormalize: cssnorCon,
+            cssIndex: cssIndex,
+            jsjQuery: jqCon,
+            jsIndex: jsIndex,
+            jsSpec: specContent
+        });
         var exportURL = savePath.stringByAppendingPathComponent("index.html");
         log("specContent : " + specContent);
         log("exportURL : " + exportURL);
