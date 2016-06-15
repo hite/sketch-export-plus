@@ -6,10 +6,14 @@ A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-
 
 1. You can choose which type artboards you want to be exported. Current Selected ArtBoard/Current Page ArtBoards/All ArtBoards
 2. Adding Text Style name when inspecting.
+3. Adding artboards sidebar navigator
+4. fix slices thumbs display error.
 
 ### ChangLog
 
-1. Derived from Sketch Measure v0.9.4.4. Supporting Sketch V3.8.* @2016-05-28
+1. Adding artboards sidebar navigator; fix slices thumbs display error .@2016-6-15
+2. Derived from Sketch Measure v0.9.4.4. Supporting Sketch V3.8.* @2016-05-28
+
 
 ~ For further information , See [utom/sketch-measure](https://github.com/utom/sketch-measure) ~
 
