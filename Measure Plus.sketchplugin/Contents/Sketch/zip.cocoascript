@@ -64,15 +64,19 @@ com.utom.extend({
                                 encoding: NSUTF8StringEncoding
                                    error: null];
         }
-
-        if(artboardsData.length > 1){
+        log("artboardsData.length = " + artboardsData.length);
+        if(artboardsData.length > 0){
             var aContent = NSString.stringWithString("var artboards = " + JSON.stringify(artboardsData) + ";");
             var aExportURL = savePath.stringByAppendingPathComponent( "artboards.js");
+
+            log("artboardsData : " + aContent);
+            log("aExportURL : " + aExportURL);
 
             [aContent writeToFile: aExportURL
                               atomically: false
                                 encoding: NSUTF8StringEncoding
                                    error: null];
+
         }
 
         if(this.configsColors){
