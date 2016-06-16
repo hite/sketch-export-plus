@@ -47,7 +47,7 @@ com.utom.extend({
             cssappCon: cssappCon
         }
 
-        for (var i = _allArtBoard.length - 1; i >= 0; i--) {
+        for (var i = 0, len = _allArtBoard.length; i < len; i++) {
             this.getArtboard(_allArtBoard[i], savePath);
         }
 

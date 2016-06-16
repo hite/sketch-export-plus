@@ -81,6 +81,7 @@ a {
     line-height: 60px;
     text-align: center;
     font-weight: bold;
+    box-sizing: border-box
 }
 
 .a-group {
@@ -93,10 +94,20 @@ a {
     cursor: pointer;
 }
 
-.a-group::after {
-    content: ">";
+.a-group::before {
+    content: " > ";
     position: relative;
     right: 0;
+}
+
+.w-artboard-list,
+.w-slice-list {
+    position: absolute;
+    top: 90px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
 }
 
 .w-item {
