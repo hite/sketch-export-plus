@@ -3,6 +3,8 @@
 **NOTE:**
 The new version [Sketch Measure](https://github.com/utom/sketch-measure) has well-designed brand-new exporting settings which aim to solve the problems like as **Sketch Measure Plus** does, even better. So please try [Sketch Measure 2.0 beta +](https://github.com/utom/sketch-measure), instead. Sketch Measure Plus will no more be updated except compatibility bugs fix.
 
+\================================================================
+
 A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-measure), derived from Sketch Measure.
 
 ### Extra Features
