@@ -1,5 +1,8 @@
 # Sketch Measure Plus
 
+**NOTE:**
+The new version [Sketch Measure](https://github.com/utom/sketch-measure) has well-designed brand-new exporting settings which aim to solve the problems like as **Sketch Measure Plus** does, even better. So please try [Sketch Measure 2.0 beta +](https://github.com/utom/sketch-measure), instead. Sketch Measure Plus will no more be updated except compatibility bugs fix.
+
 A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-measure), derived from Sketch Measure.
 
 ### Extra Features
@@ -11,6 +14,7 @@ A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-
 
 ### ChangLog
 
+1. **Supporting Sketch 39.1** @2016-07-28
 1. Beautify sidebar navigator. Making scrollable in Y direction.
 1. Adding artboards sidebar navigator; fix slices thumbs display error .@2016-6-15
 2. Derived from Sketch Measure v0.9.4.4. Supporting Sketch V3.8.* @2016-05-28

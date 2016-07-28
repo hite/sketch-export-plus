@@ -1761,7 +1761,7 @@ com.utom.extend({
 
         var colorJSON = {};
         var colorDetailJSON = {};
-        var colorGroups = this.configsColors.layers().array().objectEnumerator();
+        var colorGroups = this.configsColors.layers().objectEnumerator();
 
         while (colorGroup = colorGroups.nextObject()) {
             if( this.is( colorGroup, MSLayerGroup ) ){
@@ -2245,7 +2245,7 @@ com.utom.extend({
     },
     gradientToJSON: function(gradient) {
         var stops = [],
-            msStop, stopIter = gradient.stops().array().objectEnumerator();
+            msStop, stopIter = gradient.stops().objectEnumerator();
         while (msStop = stopIter.nextObject()) {
             stops.push(this.colorStopToJSON(msStop));
         }
@@ -2291,7 +2291,7 @@ com.utom.extend({
     },
     getBorders: function(style) {
         var borders = [],
-            msBorder, borderIter = style.borders().array().objectEnumerator();
+            msBorder, borderIter = style.borders().objectEnumerator();
         while (msBorder = borderIter.nextObject()) {
             if (msBorder.isEnabled()) {
                 var fillType = this.FillTypes[msBorder.fillType()],
@@ -2322,7 +2322,7 @@ com.utom.extend({
     },
     getFills: function(style) {
         var fills = [],
-            msFill, fillIter = style.fills().array().objectEnumerator();
+            msFill, fillIter = style.fills().objectEnumerator();
         while (msFill = fillIter.nextObject()) {
             if (msFill.isEnabled()) {
                 var fillType = this.FillTypes[msFill.fillType()],
@@ -2351,14 +2351,14 @@ com.utom.extend({
     },
     getShadows: function(style) {
         var shadows = [],
-            msShadow, shadowIter = style.shadows().array().objectEnumerator();
+            msShadow, shadowIter = style.shadows().objectEnumerator();
         while (msShadow = shadowIter.nextObject()) {
             if (msShadow.isEnabled()) {
                 shadows.push(this.shadowToJSON(msShadow));
             }
         }
 
-        shadowIter = style.innerShadows().array().objectEnumerator();
+        shadowIter = style.innerShadows().objectEnumerator();
         while (msShadow = shadowIter.nextObject()) {
             if (msShadow.isEnabled()) {
                 shadows.push(this.shadowToJSON(msShadow));
@@ -2381,7 +2381,7 @@ com.utom.extend({
     exportSizes: function(layer, savePath){
         var self = this,
             exportSizes = [],
-            size, sizesInter = layer.exportOptions().exportFormats().array().objectEnumerator();
+            size, sizesInter = layer.exportOptions().exportFormats().objectEnumerator();
 
         while (size = sizesInter.nextObject()) {
             if (!self.slicesPath){
