@@ -16,6 +16,7 @@ A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-
 
 ### ChangLog
 
+1. fix issue #3 @2016-07-30
 1. **Supporting Sketch 39.1** @2016-07-28
 1. Beautify sidebar navigator. Making scrollable in Y direction.
 1. Adding artboards sidebar navigator; fix slices thumbs display error .@2016-6-15
