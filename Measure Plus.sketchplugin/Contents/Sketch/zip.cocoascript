@@ -69,7 +69,7 @@ com.utom.extend({
             var aContent = NSString.stringWithString("var artboards = " + JSON.stringify(artboardsData) + ";");
             var aExportURL = savePath.stringByAppendingPathComponent( "artboards.js");
 
-            log("artboardsData : " + aContent);
+            // log("artboardsData : " + aContent);
             log("aExportURL : " + aExportURL);
 
             [aContent writeToFile: aExportURL
@@ -99,7 +99,7 @@ com.utom.extend({
             jsSpec: specContent
         });
         var exportURL = savePath.stringByAppendingPathComponent("index.html");
-        log("specContent : " + specContent);
+        // log("specContent : " + specContent);
         log("exportURL : " + exportURL);
         var content = NSString.stringWithString(specContent);
         [content writeToFile: exportURL
@@ -125,7 +125,7 @@ com.utom.extend({
             var artboardFrame = msArtboard.frame();
             var layers = [];
             var notes = [];
-            var layerIter = msArtboard.children().objectEnumerator();
+            var layerIter = msArtboard.children().reverseObjectEnumerator();
             var name = msArtboard.objectID();
             while(msLayer = layerIter.nextObject()) {
                 var msGroup = msLayer.parentGroup();
@@ -310,9 +310,11 @@ Marketch.prototype = {
        // 不导出以单个“-”开头的页面和画板
        var currentPageObj = doc.currentPage();
         if(!/^-{1}[^-]*?.*$/.test(currentPageObj.name())){
-          var artloops = currentPageObj.artboards().objectEnumerator();
+          var artloops = currentPageObj.artboards().reverseObjectEnumerator();
           while(artboard = artloops.nextObject()){
             // 过滤掉Symbol
+            log('artboard.name() = '+ artboard.name());
+            //
             if(!/^-{1}[^-]*?.*$/.test(artboard.name())){
               this.allArtboards.push(artboard);
             }
@@ -327,7 +329,7 @@ Marketch.prototype = {
       while(loopVar = loopObj.nextObject()){
         // 不导出以单个“-”开头的页面和画板
         if(!/^-{1}[^-]*?.*$/.test(loopVar.name())){
-          var artloops = loopVar.artboards().objectEnumerator();
+          var artloops = loopVar.artboards().reverseObjectEnumerator();
           while(artboard = artloops.nextObject()){
             // 过滤掉Symbol
             if(!/^-{1}[^-]*?.*$/.test(artboard.name())){
@@ -367,7 +369,7 @@ function getConfigs(){
     var exportBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
     var sourceBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
 
-    altWin.setMessageText('Marketch');
+    altWin.setMessageText('Measure Plus Export');
     altWin.setInformativeText('Which artboard would you like to export?');
     altWin.addButtonWithTitle('Confirm');
     altWin.addButtonWithTitle('Cancel');
