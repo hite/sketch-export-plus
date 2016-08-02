@@ -369,7 +369,7 @@ function getConfigs(){
     var exportBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
     var sourceBox = NSButton.alloc().initWithFrame(NSMakeRect(0,0,250,14));
 
-    altWin.setMessageText('Measure Plus Export');
+    altWin.setMessageText('Sketch Export Plus');
     altWin.setInformativeText('Which artboard would you like to export?');
     altWin.addButtonWithTitle('Confirm');
     altWin.addButtonWithTitle('Cancel');
