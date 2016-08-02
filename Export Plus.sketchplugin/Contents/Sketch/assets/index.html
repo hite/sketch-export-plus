@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>index</title>
+    <style type="text/css">
+    <!-- cssNormalize --> <!-- cssIndex -->
+    </style>
+    <script type="text/javascript">
+    <!-- jsjQuery -->
+    <!-- jsIndex -->
+    </script>
+    <script type="text/javascript" src="artboards.js"></script>
+    <script type="text/javascript" src="slices.js"></script>
+    <script type="text/javascript" src="colors.js"></script>
+    <script type="text/javascript">
+    jQuery(
+        function() {
+            var idx = new window.Index();
+            idx.artboardList(window.artboards || undefined);
+            idx.sliceList(window.slices || undefined);
+            idx.events();
+        }
+    );
+    </script>
+</head>
+
+<body class="frame">
+    <div id="navbar" class="b-nav">
+        <h1 class="w-panel-title">Measure Export</h1>
+        <div id="tabs" class="tabs ">
+            <div data-tab="artboard_list" class="a-tab current cant-be-selected">Artboards</div>
+            <div data-tab="slice_list" class="a-tab cant-be-selected">Slices</div>
+        </div>
+        <div id="artboard_list" class="w-artboard-list">
+            <h2 class="a-group">${name}</h2>
+            <div class="w-item">
+                <a href="A7E7562B-B715-4722-A7EB-83B1E163E4FD.html" target="content_iframe" class="a-name">${name}</a>
+            </div>
+            <div class="w-item">
+                <a href="#" class="a-name">${name}</a>
+            </div>
+            <div class="w-item">
+                <a href="#" class="a-name">${name}</a>
+            </div>
+            <div class="w-item">
+                <a href="#" class="a-name">${name}</a>
+            </div>
+            <h2 class="a-group">${name}</h2>
+        </div>
+        <div id="slice_list" class="w-slice-list hide">
+        </div>
+    </div>
+    <div class="b-content">
+        <iframe src="about:blank" id="content_iframe" name="content_iframe" frameborder="0" scrolling="true" class="b-iframe">
+        </iframe>
+    </div>
+    <script id="slice-item-template" type="application/template">
+        <div class="s-item">
+            <div class="s-image">
+                <div style="background-image:url('${sliceName}');background-size:${width} ${height};"></div>
+            </div>
+            <div class="s-name"></div>
+        </div>
+    </script>
+    <script id="slice-template" type="application/template">
+        <a href="${sliceName}" target="content_iframe" class="download"><img src="${sliceName}" alt="" />${fileName}</a>
+    </script>
+    <script id="artboard-group-template" type="application/template">
+        <h2 class="a-group cant-be-selected">${name}</h2>
+    </script>
+    <script id="artboard-item-template" type="application/template">
+        <li class="w-item">
+            <a href="${objectID}.html" target="content_iframe" class="a-name">${name}</a>
+        </li>
+    </script>
+</body>
+
+</html>
