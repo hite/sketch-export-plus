@@ -1,3 +1,0 @@
-var onRun = function(context) {
-  log(coscript)
-};
