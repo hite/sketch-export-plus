@@ -1,7 +1,7 @@
-# Sketch Measure Plus
+# sketch Export Plus
 
 **NOTE:**
-The new version [Sketch Measure](https://github.com/utom/sketch-measure) has well-designed brand-new exporting settings which aim to solve the problems like as **Sketch Measure Plus** does, even better. So please try [Sketch Measure 2.0 beta +](https://github.com/utom/sketch-measure), instead. Sketch Measure Plus will no more be updated except compatibility bugs fix.
+The new version [Sketch Measure](https://github.com/utom/sketch-measure) has well-designed brand-new exporting settings which aim to solve the problems like as **sketch Export Plus** does, even better. So please try [Sketch Measure 2.0 beta +](https://github.com/utom/sketch-measure), instead. sketch Export Plus will no more be updated except compatibility bugs fix.
 
 \================================================================
 
