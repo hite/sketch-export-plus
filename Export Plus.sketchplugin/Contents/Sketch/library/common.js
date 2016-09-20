@@ -1508,7 +1508,7 @@ com.utom.extend({
                     break;
                 case "line-height":
                     if(!self.is(layer, MSTextLayer)) return false;
-                    content.push("line: " + self.updateLength(layer.lineSpacing(), true) + " (" + Math.round(layer.lineSpacing() / layer.fontSize() * 10) / 10  + ")" );
+                    content.push("line: " + self.updateLength(layer.lineHeight(), true) + " (" + Math.round(layer.lineHeight() / layer.fontSize() * 10) / 10  + ")" );
                     break;
                 case "font-face":
                     if(!self.is(layer, MSTextLayer)) return false;
@@ -1829,7 +1829,7 @@ com.utom.extend({
             var transparentBg = shape.style().addStylePartOfType(0);
             transparentBg.setFillType(4);
             transparentBg.setPatternFillType(0);
-            transparentBg.setPatternImage(transparentImage);
+            transparentBg.setImage(transparentImage);
 
             var colorBg = shape.style().addStylePartOfType(0);
             colorBg.setFillType(0);
