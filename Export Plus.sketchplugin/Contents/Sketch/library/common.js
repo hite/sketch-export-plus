@@ -223,6 +223,18 @@ com.utom.extend({
         }
     }
 });
+//
+//hexToRgb
+com.utom.extend({
+    hexToRgb: function(hex) {
+       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+       return result ? {
+           r: this.toHex(result[1]),
+           g: this.toHex(result[2]),
+           b: this.toHex(result[3])
+       } : null;
+   }
+});
 
 //Shared
 com.utom.extend({
@@ -236,9 +248,8 @@ com.utom.extend({
 
         if( layerStyle == false ){
             var style = MSStyle.alloc().init();
-            var color = MSColor.colorWithSVGString(color);
-
-            color.setAlpha(alpha);
+            var colorRGB = self.hexToRgb(color),
+            color = MSColor.colorWithRed_green_blue_alpha(colorRGB.r / 255, colorRGB.g / 255, colorRGB.b / 255, 1);
 
             var fill = style.addStylePartOfType(0);
             fill.color = color;
@@ -253,8 +264,8 @@ com.utom.extend({
     sharedLayerStyleBorder: function(style, color, alpha) {
         var alpha = alpha || 1;
         var border = style.addStylePartOfType(1);
-        var color = MSColor.colorWithSVGString(color);
-        color.setAlpha(alpha);
+        var colorRGB = self.hexToRgb(color),
+        color = MSColor.colorWithRed_green_blue_alpha(colorRGB.r / 255, colorRGB.g / 255, colorRGB.b / 255, 1);
         border.color = color;
         border.thickness = 1;
 
@@ -269,9 +280,8 @@ com.utom.extend({
         var alpha = alpha || 1;
 
         if( textStyle == false ){
-            var color = MSColor.colorWithSVGString(color);
-
-            color.setAlpha(alpha);
+            var colorRGB = self.hexToRgb(color),
+            color = MSColor.colorWithRed_green_blue_alpha(colorRGB.r / 255, colorRGB.g / 255, colorRGB.b / 255, 1);
 
             var textLayer = this.addText(this.page);
             textLayer.setTextColor(color);
@@ -1808,15 +1818,16 @@ com.utom.extend({
             var nameText = self.addText( group );
             var infoText = self.addText( group );
             var name = color.name? color.name: _("untitled");
-            var shapeColor = MSColor.colorWithSVGString(color.hex);
-            shapeColor.setAlpha(color.a);
+            var colorRGB = self.hexToRgb(color.hex),
+            shapeColor = MSColor.colorWithRed_green_blue_alpha(colorRGB.r / 255, colorRGB.g / 255, colorRGB.b / 255, 1);
 
             var grayscale = color.r * 0.299 + color.g * 0.587 + color.b * 0.114;
 
             var textHex = ( grayscale >= 180 )? "#4A4A4A": "#FFFFFF";
             textHex = (color.a <= .3)? "#4A4A4A": textHex;
 
-            var textColor =  MSColor.colorWithSVGString(textHex);
+            colorRGB = self.hexToRgb(textHex),
+            textColor = MSColor.colorWithRed_green_blue_alpha(colorRGB.r / 255, colorRGB.g / 255, colorRGB.b / 255, 1);
 
             group.setName(name);
             shape.setName("color");
@@ -2486,7 +2497,7 @@ com.utom.extend({
                 }
 
                 if ( this.is(msLayer, MSTextLayer) ) {
-                    layer.content = this.toJSString(msLayer.storage().string()),
+                    layer.content = this.toJSString(msLayer.stringValue()),
                     layer.color = this.colorToJSON(msLayer.textColor());
                     layer.fontSize = msLayer.fontSize();
                     layer.fontFace = this.toJSString(msLayer.fontPostscriptName());

@@ -1,9 +1,11 @@
 # sketch Export Plus
 
-**NOTE:**
-The new version [Sketch Measure](https://github.com/utom/sketch-measure) has well-designed brand-new exporting settings which aim to solve the problems like as **sketch Export Plus** does, even better. So please try [Sketch Measure 2.0 beta +](https://github.com/utom/sketch-measure), instead. sketch Export Plus will no more be updated except compatibility bugs fix.
+**Notice**
 
-\================================================================
+`sketch Export Plus` will not been maintained anymore. Please try [utom/sketch-measure](https://github.com/utom/sketch-measure) or [Marketch](https://github.com/tudou527/marketch) 
+
+
+================================================================
 
 A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-measure), derived from Sketch Measure.
 
@@ -15,7 +17,7 @@ A plugin that do same things as [Sketch Measure](https://github.com/utom/sketch-
 4. fix slices thumbs display error.
 
 ### ChangLog
-
+1. fix issse [#6](https://github.com/hite/sketch-export-plus/issues/6) @2017-01-03 Support  sketch 41
 1. fix issue [#5](https://github.com/hite/sketch-export-plus/issues/5) @2016-09-20
 1. fix issue [#3](https://github.com/hite/sketch-export-plus/issues/3) @2016-07-30
 1. **Supporting Sketch 39.1** @2016-07-28

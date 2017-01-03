@@ -3,6 +3,7 @@
 //
 com.utom.extend({
     specExportPlus: function(_allArtBoard){
+        log('>>>><>')
         if(!this.configs) return false;
 
         var context = this.context;
@@ -113,7 +114,7 @@ com.utom.extend({
         var context = this.context;
         var document = this.document;
         var selection = this.selection;
-
+        log('>>getArtboard');
         var tempCon = this.templateContents.tempCon;
         var jqCon = this.templateContents.jqCon;
         var jsappCon = this.templateContents.jsappCon;
@@ -182,7 +183,7 @@ com.utom.extend({
                 }
 
                 if ( this.is(msLayer, MSTextLayer) ) {
-                    layer.content = this.toJSString(msLayer.storage().string()),
+                    layer.content = this.toJSString(msLayer.stringValue()),
                     layer.color = this.colorToJSON(msLayer.textColor());
                     layer.fontSize = msLayer.fontSize();
                     layer.fontFace = this.toJSString(msLayer.fontPostscriptName());
